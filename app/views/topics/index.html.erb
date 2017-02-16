@@ -13,12 +13,14 @@
 
   <tbody>
     <% @topics.each do |topic| %>
-      <tr>
-        <td><%= link_to topic.title, topic_path(topic) %></td>
-        <td><%= topic.description %></td>
-        <td><%= pluralize(topic.votes.count, "vote") %></td>
-        <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
-      </tr>
+      <% cache topic do %>
+        <tr>
+          <td><%= link_to topic.title, topic_path(topic) %></td>
+          <td><%= topic.description %></td>
+          <td><%= pluralize(topic.votes.count, "vote") %></td>
+          <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
