@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(title: :asc)
   end
 
   # GET /topics/1
