@@ -26,6 +26,10 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
+group :staging, :production do
+  gem 'sentry-raven'
+end
+
 group :production do
   gem 'dalli'
   gem 'dalli-elasticache'
