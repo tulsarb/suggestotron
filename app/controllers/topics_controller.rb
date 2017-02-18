@@ -4,6 +4,7 @@ class TopicsController < ApplicationController
   def upvote
     @topic = Topic.find(params[:id])
     @topic.votes.create
+    NotifyMailer.vote_email(current_user, @topic).deliver
     redirect_to(topics_path)
   end
 
@@ -25,8 +26,7 @@ class TopicsController < ApplicationController
   end
 
   # GET /topics/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /topics
   # POST /topics.json
@@ -69,13 +69,14 @@ class TopicsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_topic
-      @topic = Topic.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def topic_params
-      params.require(:topic).permit(:title, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_topic
+    @topic = Topic.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def topic_params
+    params.require(:topic).permit(:title, :description)
+  end
 end

@@ -53,5 +53,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
   # Default mail domain
-  config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'], port: 3000 }
+  config.action_mailer.default_url_options = { host: ENV['MAIL_URL'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { address: ENV['MAIL_HOST'],
+                                         port: ENV['MAIL_PORT'] }
 end
