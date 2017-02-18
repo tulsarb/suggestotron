@@ -84,4 +84,7 @@ Rails.application.configure do
 
   # Mailer Host
   config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
+
+  # Use Amazon SES for email delivery
+  config.action_mailer.delivery_method = :aws_sdk
 end
