@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'better_errors'
-  gem 'byebug', platform: :mri
+  gem 'binding_of_caller'
   gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'sqlite3'
