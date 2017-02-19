@@ -27,7 +27,8 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
-group :production do
+group :staging, :production do
+  gem 'active_elastic_job'
   gem 'dalli'
   gem 'dalli-elasticache'
   gem 'pg'
