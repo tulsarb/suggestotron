@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   def upvote
     @topic = Topic.find(params[:id])
     @topic.votes.create
-    NotifyMailer.vote_email(current_user, @topic).deliver
+    NotifyMailer.vote_email(current_user, @topic).deliver_later
     redirect_to(topics_path)
   end
 
