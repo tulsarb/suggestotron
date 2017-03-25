@@ -27,6 +27,15 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  # A common issue, the config.infer_spec_type_from_file_location! doesn't load
+  # shoulda_matchers, every gem update one should comment these out and try tests again
+  # a somewhat related: https://github.com/thoughtbot/shoulda-matchers/issues/951
+  config.include Shoulda::Matchers::ActiveModel, type: :model
+  config.include Shoulda::Matchers::ActiveRecord, type: :model
+
+  # Let's us use t() in test specs
+  config.include AbstractController::Translation
+
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
