@@ -16,7 +16,10 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'dotenv-rails'
+  gem 'factory_girl_rails'
+  gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'rspec-rails'
   gem 'sqlite3'
 end
 
@@ -25,6 +28,14 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'poltergeist'
+  gem 'webmock'
 end
 
 group :staging, :production do
