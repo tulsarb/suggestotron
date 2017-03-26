@@ -41,5 +41,5 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   # Mailer Host
-  config.action_mailer.default_url_options = { host: ENV['MAIL_URL'] }
+  config.action_mailer.default_url_options = { host: ENV.fetch('MAIL_URL', 'localhost') }
 end
