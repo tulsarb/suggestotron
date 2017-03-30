@@ -10,4 +10,4 @@ The point of this repository is a technology demonstration and playground. This 
 * Email notifications on votes
 * Error reporting to Sentry.io
 * RSpec testing
-* Travis CI
+* CircleCI
