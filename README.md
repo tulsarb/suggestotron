@@ -6,11 +6,12 @@ The point of this repository is a technology demonstration and playground. This 
 
 **I have added some features like:**
 
-* Devise authentication
-* AWS ElasticBeanstalk Hosted
-* Background Processing with AWS SQS
-* Email notifications on votes
-* Error reporting to Sentry.io
-* RSpec testing
-* CircleCI
-* Skylight.io Montoring
+* Devise - authentication
+* RSpec - testing
+* AWS ElasticBeanstalk - hosting
+* AWS SQS - background processing 
+* AWS SNS - email notifications
+* Sentry.io - error reporting
+* CircleCI - continuous integration
+* HoundCI - code style checks
+* Skylight.io - app montoring
