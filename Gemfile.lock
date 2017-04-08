@@ -216,6 +216,8 @@ GEM
       faraday (>= 0.7.6, < 1.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
+    skylight (1.1.0)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     spring (2.0.1)
       activesupport (>= 4.2)
@@ -287,6 +289,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sentry-raven
   shoulda-matchers
+  skylight
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
@@ -296,4 +299,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.14.5
+   1.14.6
