@@ -1,5 +1,7 @@
 # Suggestotron
 
+[![CircleCI](https://circleci.com/gh/tulsarb/suggestotron.svg?style=svg)](https://circleci.com/gh/tulsarb/suggestotron)
+
 The point of this repository is a technology demonstration and playground. This is the suggestotron sample application built during a [RailsBridge](http://railsbridge.org). Feel free to create an account and play with the [hosted app](https://suggestotron.railsbridgetulsa.org).
 
 **I have added some features like:**
@@ -11,3 +13,4 @@ The point of this repository is a technology demonstration and playground. This 
 * Error reporting to Sentry.io
 * RSpec testing
 * CircleCI
+* Skylight.io Montoring
