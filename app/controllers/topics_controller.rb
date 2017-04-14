@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  before_action :set_topic, only: %i[show edit update destroy]
 
   def upvote
     @topic = Topic.find(params[:id])
