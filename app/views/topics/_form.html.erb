@@ -5,7 +5,7 @@
 
       <ul>
       <% topic.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message || 'Unknown error' %></li>
       <% end %>
       </ul>
     </div>
@@ -19,6 +19,12 @@
   <div class="field">
     <%= f.label :description %>
     <%= f.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.hidden_field :image, value: topic.cached_image_data %>
+    <%= f.file_field :image %>
   </div>
 
   <div class="actions">
