@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <%= render @topics, cached: true %>
+    <%= render partial: 'topic', collection: @topics, cached: true %>
   </tbody>
 </table>
 
