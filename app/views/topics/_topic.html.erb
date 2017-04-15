@@ -1,0 +1,7 @@
+<tr>
+  <td><%= image_tag topic&.image_url if topic.image.present? %></td>
+  <td><%= link_to topic.title, topic_path(topic) %></td>
+  <td><%= topic.description %></td>
+  <td><%= pluralize(topic.votes.count, "vote") %></td>
+  <td><%= button_to '+1', upvote_topic_path(topic), method: :post %></td>
+</tr>
