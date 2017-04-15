@@ -10,7 +10,7 @@ class TopicsController < ApplicationController
   end
 
   def index
-    @topics = Topic.all.order(title: :asc)
+    @topics = Topic.all.includes(:votes).order(title: :asc)
   end
 
   def show
