@@ -1,5 +1,5 @@
 <tr>
-  <td><%= image_tag topic&.image_url if topic.image.present? %></td>
+  <td><%= image_tag(topic&.image_url, style: 'width: 200px;') if topic.image.present? %></td>
   <td><%= link_to topic.title, topic_path(topic) %></td>
   <td><%= topic.description %></td>
   <td><%= pluralize(topic.votes.count, "vote") %></td>
