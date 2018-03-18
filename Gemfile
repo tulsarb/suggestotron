@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 gem 'awesome_print'
-gem 'aws-sdk', '~> 2.1'
-gem 'aws-sdk-rails'
+gem 'aws-sdk-s3', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails'
 gem 'devise'
@@ -13,6 +12,7 @@ gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.0.1'
 gem 'sass-rails', '~> 5.0'
 gem 'sentry-raven'
+gem 'sidekiq'
 gem 'shrine'
 gem 'skylight'
 gem 'turbolinks', '~> 5'
@@ -46,8 +46,6 @@ group :test do
 end
 
 group :staging, :production do
-  gem 'active_elastic_job'
   gem 'dalli'
-  gem 'dalli-elasticache'
   gem 'pg'
 end

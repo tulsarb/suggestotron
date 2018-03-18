@@ -51,10 +51,7 @@ Rails.application.configure do
   config.cache_store = :dalli_store, ENV['MEMCACHED_URL']
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
-  config.active_job.queue_adapter     = :active_elastic_job
-  config.active_job.queue_name_prefix = "suggestotron_#{Rails.env}"
-  config.action_mailer.deliver_later_queue_name = :default
-  config.action_mailer.perform_caching = false
+  config.active_job.queue_adapter = :sidekiq
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
@@ -85,7 +82,4 @@ Rails.application.configure do
 
   # Mailer Host
   config.action_mailer.default_url_options = { host: ENV['MAIL_URL'] }
-
-  # Use Amazon SES for email delivery
-  config.action_mailer.delivery_method = :aws_sdk
 end
