@@ -1,9 +1,10 @@
 Hi <%= @user.first_name || 'Visitor' %>,
 
-You have a voted for <%= @topic.title %>.
+You have a voted for <%= link_to @topic.title, @topic %>.
 
 It has <%= pluralize(@topic.votes.count, 'vote') %>.
 
-Thanks for using the app!
+Thanks for using the <%= link_to 'app', root_url %>!
 
 -Suggestotron
+
