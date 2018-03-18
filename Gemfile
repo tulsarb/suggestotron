@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 
 gem 'awesome_print'
-gem 'aws-sdk-s3', '~> 1.2'
+gem 'aws-sdk-s3'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'coffee-rails'
 gem 'devise'
