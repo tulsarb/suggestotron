@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.4.1'
+
 gem 'awesome_print'
 gem 'aws-sdk', '~> 2.1'
 gem 'aws-sdk-rails'
