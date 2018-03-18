@@ -48,7 +48,7 @@ Rails.application.configure do
   config.log_tags = [:request_id]
 
   # Use a different cache store in production.
-  config.cache_store = :dalli_store, Dalli::ElastiCache.new(ENV['MEMCACHE_SERVERS']).servers
+  config.cache_store = :dalli_store, ENV['MEMCACHED_URL']
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   config.active_job.queue_adapter     = :active_elastic_job
