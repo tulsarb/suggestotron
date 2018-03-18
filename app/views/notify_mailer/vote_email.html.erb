@@ -1,10 +1,10 @@
-Hi <%= @user.first_name || 'Visitor' %>,
+<p>Hi <%= @user.first_name || 'Visitor' %>,</p>
 
-You have a voted for <%= link_to @topic.title, @topic %>.
+<p>You have a voted for <%= link_to @topic.title, @topic %>.</p>
 
-It has <%= pluralize(@topic.votes.count, 'vote') %>.
+<p>It has <%= pluralize(@topic.votes.count, 'vote') %>.</p>
 
-Thanks for using the <%= link_to 'app', root_url %>!
+<p>Thanks for using the <%= link_to 'app', root_url %>!</p>
 
--Suggestotron
+<p>-Suggestotron</p>
 
