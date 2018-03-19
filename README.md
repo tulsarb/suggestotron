@@ -6,10 +6,11 @@ The point of this repository is a technology demonstration and playground. This 
 
 **I have added some features like:**
 
+* DOKKU
 * Devise - authentication
 * RSpec - testing
 * AWS ElasticBeanstalk - hosting
-* AWS SQS - background processing 
+* AWS SQS - background processing
 * AWS SNS - email notifications
 * Sentry.io - error reporting
 * CircleCI - continuous integration
