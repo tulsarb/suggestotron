@@ -47,5 +47,5 @@ end
 
 group :staging, :production do
   gem 'dalli'
-  gem 'pg'
+  gem 'pg', '~> 0.18'
 end
