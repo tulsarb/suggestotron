@@ -71,24 +71,9 @@ jobs:
       - type: store_test_results
         path: /tmp/test-results
 
-  deploy:
-    working_directory: ~/suggestotron
-    docker:
-      - image: circleci/ruby:2.5.1
-    steps:
+      # Deployment to Dokku
       - run:
           name: Deploy to Dokku
           command: |
             git remote add production dokku@apps.tulsarb.org:suggestotron
             git push production master
-
-workflows:
-  build-and-deploy:
-    jobs:
-      - build
-      - deploy:
-          requires:
-            - build
-          filters:
-            branches:
-              only: master
