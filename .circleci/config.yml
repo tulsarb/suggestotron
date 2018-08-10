@@ -55,7 +55,7 @@ jobs:
           command: |
             bundle exec rspec --profile 10 \
                               --format RspecJunitFormatter \
-                              --out /tmp/test-results/rspec.xml \
+                              --out tmp/test-results/rspec/results.xml \
                               --format progress \
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
@@ -69,7 +69,7 @@ jobs:
 
       # Save artifacts
       - type: store_test_results
-        path: /tmp/test-results
+        path: tmp/test-results
 
       # Deployment to Dokku
       - run:
