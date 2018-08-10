@@ -1,0 +1,94 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/suggestotron
+    docker:
+      - image: circleci/ruby:2.5.1-node
+
+    steps:
+      - checkout
+
+      # Restore bundler cache
+      - type: cache-restore
+        key: suggestotron-{{ checksum "Gemfile.lock" }}
+
+      # Bundle install dependencies
+      - run:
+          name: Install Dependencies
+          command: |
+            gem install bundler
+            bundle install --deployment
+
+      # Store bundle cache
+      - type: cache-save
+        key: suggestotron-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+
+      # Database setup
+      - run:
+          name: Set Up Database
+          command: |
+            cp config/database.yml.sample config/database.yml
+            bundle exec rake db:create
+            bundle exec rake db:schema:load
+
+      # Run Bundler Audit
+      - run:
+          name: Bundler Security Audit
+          command: |
+            bundle exec bundle-audit update
+            bundle exec bundle-audit check
+
+      # Code Climate - Test Coverage
+      - run:
+          name: Prepare for Code Climate Coverage Reporting
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+
+      # Run RSpec in parallel
+      - run:
+          name: Run RSpec Tests
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out /tmp/test-results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+
+      # Code Climate - Send Results
+      - run:
+          name: Upload Test Results to Code Climate
+          command: |
+            set +o pipefail
+            ./cc-test-reporter after-build | tee code-climate-reporter.log
+          when: on_success
+
+      # Save artifacts
+      - type: store_test_results
+        path: /tmp/test-results
+
+  deploy:
+    working_directory: ~/suggestotron
+    docker:
+      - image: circleci/ruby:2.5.1
+    steps:
+      - run:
+          name: Deploy to Dokku
+          command: |
+            git remote add production dokku@apps.tulsarb.org:suggestotron
+            git push production master
+
+workflows:
+  build-and-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master

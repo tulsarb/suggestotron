@@ -42,7 +42,9 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
+  gem 'rspec_junit_formatter'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
   gem 'webmock'
 end
 
