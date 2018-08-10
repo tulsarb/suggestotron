@@ -30,3 +30,6 @@ public/uploads
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Test
+/coverage
