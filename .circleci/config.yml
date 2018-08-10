@@ -9,7 +9,7 @@ jobs:
     steps:
       - checkout
 
-      # Restore bundler cache
+      # Restore bundle cache
       - type: cache-restore
         key: suggestotron-{{ checksum "Gemfile.lock" }}
 
@@ -34,7 +34,7 @@ jobs:
             bundle exec rake db:create
             bundle exec rake db:schema:load
 
-      # Run Bundler Audit
+      # Run Bundler Security Audit
       - run:
           name: Bundler Security Audit
           command: |
