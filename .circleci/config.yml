@@ -70,9 +70,11 @@ jobs:
         path: tmp/test-results
 
       # Deployment to Dokku
-      - run:
+      - deploy:
           name: Deploy to Dokku
           command: |
-            ssh-keyscan -H apps.tulsarb.org >> ~/.ssh/known_hosts
-            git remote add production dokku@apps.tulsarb.org:suggestotron
-            git push production master --force
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ssh-keyscan -H apps.tulsarb.org >> ~/.ssh/known_hosts
+              git remote add production dokku@apps.tulsarb.org:suggestotron
+              git push production master --force
+            fi
