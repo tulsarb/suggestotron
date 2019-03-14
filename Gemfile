@@ -4,7 +4,7 @@ ruby '2.5.1'
 
 gem 'awesome_print'
 gem 'aws-sdk-s3'
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bundle-audit'
 gem 'coffee-rails'
 gem 'devise'
