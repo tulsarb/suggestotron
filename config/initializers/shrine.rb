@@ -27,4 +27,4 @@ end
 
 Shrine.plugin :activerecord
 Shrine.plugin :cached_attachment_data
-Shrine.plugin :default_url_options, store: { public: true, host: ENV['CDN_URL'] }
+Shrine.plugin :url_options, store: { public: true, host: ENV['CDN_URL'] }

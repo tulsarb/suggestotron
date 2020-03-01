@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :topic do
-    title 'Pizza'
+    title { 'Pizza' }
   end
 end
