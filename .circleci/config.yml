@@ -68,13 +68,3 @@ jobs:
       # Save artifacts
       - type: store_test_results
         path: tmp/test-results
-
-      # Deployment to Dokku
-      - deploy:
-          name: Deploy to Dokku
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              ssh-keyscan -H apps.tulsarb.org >> ~/.ssh/known_hosts
-              git remote add production dokku@apps.tulsarb.org:suggestotron
-              git push production master --force
-            fi
