@@ -4,13 +4,13 @@
 
 The point of this repository is a technology demonstration and playground. This is the [suggestotron](http://docs.railsbridge.org/intro-to-rails/) sample application built during a [RailsBridge](http://railsbridge.org).
 
-You can see a demo version of this app at [suggestotron.railsbridgetulsa.org](https://suggestotron.railsbridgetulsa.org). Feel free to create an account and play with it.
+You can see a demo version of this app at [suggestotron.railsbridgetulsa.org](http://suggestotron.railsbridgetulsa.org). Feel free to create an account and play with it.
 
 Commits to the `master` branch auto-deploy.
 
 **I have added some features like:**
 
-* Hosting on [Digital Ocean](https://www.digitalocean.com/) using [Dokku](http://dokku.viewdocs.io/dokku/)
+* Hosting on [Heroku](https://heroku.com/)
 * [Devise](https://github.com/plataformatec/devise) - authentication
 * [RSpec](http://rspec.info/) - testing
 * [Sidekiq](https://sidekiq.org/) - background processing
