@@ -18,7 +18,8 @@ jobs:
           name: Install Dependencies
           command: |
             gem install bundler
-            bundle install --deployment
+            bundle config set --local deployment 'true'
+            bundle install
 
       # Store bundle cache
       - type: cache-save
